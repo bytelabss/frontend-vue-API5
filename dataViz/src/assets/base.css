@@ -1,4 +1,33 @@
 /* color palette from <https://github.com/vuejs/theme> */
+
+:root {
+  /* Cores Foco pro4tech */
+  --roxo-pro4tech: #693681;
+  --azul1-pro4tech: #554d96;
+  --azul2-pro4tech: #3A6AAA;
+  --azul3-pro4tech: #2281AF;
+  --azul4-pro4tech: #019CBB;
+  --verde1-pro4tech: #00B7A3;
+  --laranja1-pro4tech: #9D4413;
+  --laranja2-pro4tech: #B04D17;
+  --laranja3-pro4tech: #BE602F;
+}
+
+:root{
+  /* Cores fundo pro4tech */
+  --branco1-pro4tech: #FFFFFF;
+  --branco2-pro4tech: #EDEFF0;
+}
+
+:root{
+  /* Cores Fundo pro4tech */
+  --sombra_braca-pro4tech: #F4F4F4;
+  --sombra_cinza-pro4tech: #C5C5C5;
+  --sombra-cinza2-pro4tech: #C2C2C2;
+  --sombra_laranja1-pro4tech: #BE602F;
+  --sombre_laranja2-pro4tech: #C29C80;
+}
+
 :root {
   --vt-c-white: #ffffff;
   --vt-c-white-soft: #f8f8f8;
