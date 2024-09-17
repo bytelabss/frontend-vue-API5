@@ -1,12 +1,15 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+import DashboardCard from './components/DashboardCard.vue'
 </script>
 
 <template>
   <header>
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
+
+      <DashboardCard imageUrl="" title="ttt" description="DDDD"/>
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
