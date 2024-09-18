@@ -102,19 +102,11 @@ export default {
   padding: 16px;
   margin-bottom: 3vh;
   text-align: left;
-  background: var(--branco1-pro4tech);
+  background: var(--branco2-pro4tech);
   min-height: 5vh;
   max-height: 45vh;
   min-width: 10vw;
   max-width: 90vw;
-}
-
-@media (min-width: 1024px) {
-  .card {
-    min-width: 50vw;
-    max-width: 80vw;
-    text-align: left;
-  }
 }
 
 canvas {
@@ -139,5 +131,13 @@ canvas {
 .card-description {
   font-size: 14px;
   color: var(--vt-c-text-light-1);
+}
+
+@media (min-width: 1024px) {
+  .card {
+    min-width: 50vw;
+    max-width: 80vw;
+    text-align: left;
+  }
 }
 </style>
