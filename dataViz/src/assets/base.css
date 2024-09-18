@@ -4,28 +4,32 @@
   /* Cores Foco pro4tech */
   --roxo-pro4tech: #693681;
   --azul1-pro4tech: #554d96;
-  --azul2-pro4tech: #3A6AAA;
-  --azul3-pro4tech: #2281AF;
-  --azul4-pro4tech: #019CBB;
-  --verde1-pro4tech: #00B7A3;
-  --laranja1-pro4tech: #9D4413;
-  --laranja2-pro4tech: #B04D17;
-  --laranja3-pro4tech: #BE602F;
+  --azul2-pro4tech: #3a6aaa;
+  --azul3-pro4tech: #2281af;
+  --azul4-pro4tech: #019cbb;
+  --verde1-pro4tech: #00b7a3;
+  --laranja1-pro4tech: #9d4413;
+  --laranja2-pro4tech: #b04d17;
+  --laranja3-pro4tech: #be602f;
 }
 
-:root{
+:root {
   /* Cores fundo pro4tech */
-  --branco1-pro4tech: #FFFFFF;
-  --branco2-pro4tech: #EDEFF0;
+  --branco1-pro4tech: #ffffff;
+  --branco2-pro4tech: #edeff0;
 }
 
-:root{
-  /* Cores Fundo pro4tech */
-  --sombra_braca-pro4tech: #F4F4F4;
-  --sombra_cinza-pro4tech: #C5C5C5;
-  --sombra-cinza2-pro4tech: #C2C2C2;
-  --sombra_laranja1-pro4tech: #BE602F;
-  --sombre_laranja2-pro4tech: #C29C80;
+:root {
+  /* Cores Sombra pro4tech */
+  --sombra_braca-pro4tech: #f4f4f4;
+  --sombra_cinza-pro4tech: #c5c5c5;
+  --sombra-cinza2-pro4tech: #c2c2c2;
+  --sombra_laranja1-pro4tech: #be602f;
+  --sombre_laranja2-pro4tech: #c29c80;
+}
+
+:root {
+  --raio_border-default: 8px;
 }
 
 :root {
@@ -52,9 +56,9 @@
 
 /* semantic color variables for this project */
 :root {
-  --color-background: var(--vt-c-white);
+  /* --color-background: var(--vt-c-white);
   --color-background-soft: var(--vt-c-white-soft);
-  --color-background-mute: var(--vt-c-white-mute);
+  --color-background-mute: var(--vt-c-white-mute); */
 
   --color-border: var(--vt-c-divider-light-2);
   --color-border-hover: var(--vt-c-divider-light-1);
@@ -67,9 +71,9 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-background: var(--vt-c-black);
+    /* --color-background: var(--vt-c-black);
     --color-background-soft: var(--vt-c-black-soft);
-    --color-background-mute: var(--vt-c-black-mute);
+    --color-background-mute: var(--vt-c-black-mute); */
 
     --color-border: var(--vt-c-divider-dark-2);
     --color-border-hover: var(--vt-c-divider-dark-1);
@@ -90,7 +94,7 @@
 body {
   min-height: 100vh;
   color: var(--color-text);
-  background: var(--color-background);
+  background: var(--color-background-mute);
   transition:
     color 0.5s,
     background-color 0.5s;
