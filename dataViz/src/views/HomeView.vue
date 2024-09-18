@@ -1,9 +1,7 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+import DashboardCard from '../components/DashboardCard.vue'
 </script>
 
 <template>
-  <main>
-    <TheWelcome />
-  </main>
+  <DashboardCard title="ttt" description="DDDD" />
 </template>
