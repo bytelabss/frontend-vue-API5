@@ -7,8 +7,15 @@ export default {
 <template>
   <div class="navbar">
     <div class="paginas">
-      <router-link to="/about">About</router-link>
-      <router-link to="/contact">Contact</router-link>
+      <!-- <router-link to="/dash">Dashboard</router-link> -->
+      <router-link to="/">Dashboard</router-link>
+      <!-- <router-link to="/vacancies">Vagas</router-link> -->
+      <router-link to="/">Vagas</router-link>
+      <!-- <router-link to="/candidates">Candidatos</router-link> -->
+      <router-link to="/">Candidatos</router-link>
+      <!-- <router-link to="/analytics">Análises</router-link> -->
+      <router-link to="/">Análises</router-link>
+      <!-- <router-link to="/options">Opções</router-link> -->
     </div>
   </div>
 </template>
@@ -30,7 +37,7 @@ export default {
 .paginas {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
 }
 
 .navbar-item {
