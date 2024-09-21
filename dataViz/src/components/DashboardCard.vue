@@ -100,13 +100,12 @@ export default {
   border: 1px solid var(--sombra_cinza-pro4tech);
   border-radius: 8px;
   padding: 16px;
-  margin-bottom: 3vh;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
   text-align: left;
   background: var(--branco2-pro4tech);
-  min-height: 5vh;
-  max-height: 45vh;
-  min-width: 10vw;
-  max-width: 90vw;
+  height: 100%;
+  width: 100%;
 }
 
 canvas {

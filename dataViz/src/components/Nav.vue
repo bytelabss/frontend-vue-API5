@@ -20,9 +20,8 @@ export default {
       <router-link to="/">Análises</router-link>
       <!-- <router-link to="/options">Opções</router-link> -->
       <router-link to="/">Opções</router-link>
-    </div>
-    <div class="sair">
-      <router-link to="/login">Sair</router-link>
+      <!-- <router-link class="sair" to="/auth">Sair</router-link> -->
+      <router-link class="sair" to="/">Sair</router-link>
     </div>
   </nav>
 </template>
@@ -58,21 +57,18 @@ nav {
 
 .paginas {
   height: 100%;
-  margin: 15px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
-.sair {
+.paginas a {
+  margin-top: 2rem;
+  width: 100%;
   height: 100%;
-  margin: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
-.sair a {
+.sair {
   color: red;
 }
 </style>
