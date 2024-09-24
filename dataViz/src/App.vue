@@ -1,5 +1,7 @@
 <script setup>
 import NavBar from './components/Nav.vue'
+import 'font-awesome/css/font-awesome.css';
+
 </script>
 
 <template>

@@ -86,7 +86,9 @@ export default {
     <div class="card-content">
       <h2 class="card-title">{{ title }}</h2>
 
-      <canvas id="myChart" aria-label="Chart Display" role="img"></canvas>
+      <div class="chart-container">
+        <canvas id="myChart" aria-label="Chart Display" role="img"></canvas>
+      </div>
 
       <div v-if="description">
         <p class="card-description">{{ description }}</p>
@@ -96,6 +98,19 @@ export default {
 </template>
 
 <style scoped>
+.dashboard-top-cards {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 768px) {
+  .dashboard-top-cards {
+    flex-direction: column;
+  }
+}
+
 .card {
   border: 1px solid var(--sombra_cinza-pro4tech);
   border-radius: 8px;
@@ -109,9 +124,16 @@ export default {
   max-width: 90vw;
 }
 
+.chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px; /* Ajuste conforme necessário */
+}
+
 canvas {
   max-width: 100%;
-  max-height: 80%;
+  max-height: 100%;
 }
 
 .card-image {
