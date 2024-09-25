@@ -7,7 +7,7 @@ export default {
 <template>
   <nav>
     <div class="PIWrapper">
-      <img class="ProfileImage" src="../assets/puppy.jpg" alt="Logo" />
+      <img class="ProfileImage" src="../assets/leleco.jpeg" alt="Logo" />
     </div>
     <div class="paginas">
       <!-- <router-link to="/dash">Dashboard</router-link> -->
