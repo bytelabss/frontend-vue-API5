@@ -13,14 +13,13 @@ import GraphTest from '../components/GraphTest.vue'
     </div>
     <div class="dashs">
       <DashboardCard title="ttt" description="DDDD" />
-      <DashboardCard title="ttt" description="DDDD" />
+      <GraphTest></GraphTest>
     </div>
     <div class="VagasRecentes">
       <DashboardCard title="ttt" description="DDDD" />
     </div>
   </div>
 
-  <GraphTest></GraphTest>
 </template>
 
 <style scoped>
