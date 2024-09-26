@@ -1,14 +1,18 @@
 <script setup>
+/*import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'*/
 import NavBar from './components/Nav.vue'
-import 'font-awesome/css/font-awesome.css';
+/*import { navbarIcons } from './utils/icons'*/
 
+// Não é necessário exportar um objeto padrão ao usar <script setup>
 </script>
 
 <template>
-  <nav>
-    <NavBar />
-  </nav>
-  <body>
-    <router-view />
-  </body>
+  <div id="app">
+    <header>
+      <NavBar />
+    </header>
+    <main>
+      <router-view />
+    </main>
+  </div>
 </template>

@@ -6,11 +6,6 @@ export default {
 
 <template>
   <div class="navbar">
-<<<<<<< Updated upstream
-    <div class="navbar-end">
-      <router-link to="/about">About</router-link>
-      <router-link to="/contact">Contact</router-link>
-=======
     <div class="perfil">
       <img src="../assets/img/perfil.png" alt="Foto de perfil" class="foto-perfil">
       <span class="nome-usuario">Nicolas Cursino</span>
@@ -31,27 +26,14 @@ export default {
       <router-link to="/opcoes">
         <i class="fa fa-cog"></i> Opções
       </router-link>
+    </div>
+    <div class="sair">
       <router-link to="/sair">
         <i class="fa fa-sign-out-alt"></i> Sair
       </router-link>
->>>>>>> Stashed changes
     </div>
   </div>
 </template>
-
-<style>
-.navbar {
-  /* Estilos para a navbar */
-}
-.paginas {
-  display: flex;
-  gap: 20px; /* Espaço entre os links */
-}
-i {
-  margin-right: 5px; /* Espaço entre o ícone e o texto */
-}
-</style>
-
 
 <style scoped>
 .navbar {
@@ -59,31 +41,23 @@ i {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-<<<<<<< Updated upstream
-  background: var(--azul3-pro4tech);
-  color: var(--branco2-pro4tech);
-  padding: 1rem;
-  min-height: calc(100vh - 14vh);
-  margin: 7vh 0;
-  border-radius: var(--raio_border-default);
-=======
   background: #554d96;
   color: #554d96;
-  padding: 0.5rem; /* Reduzido o padding */
-  width: 150px; /* Reduzido para uma largura fixa em pixels */
+  padding: 1rem 0.5rem;
+  width: 200px;
   height: 100vh;
-  position: fixed;
+  position: fixed;  
   top: 0;
   left: 0;
   margin: 0;
-  border-radius: 0 var(--raio_border-default) var(--raio_border-default) 0;
+  border-radius: 0; /* Removido o border-radius */
 }
 
 .perfil {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .foto-perfil {
@@ -95,41 +69,97 @@ i {
 }
 
 .nome-usuario {
-  font-size: 0.9rem;
+  font-size: 1rem;
+  font-weight: bold;
   text-align: center;
   color: var(--branco2-pro4tech);
->>>>>>> Stashed changes
+  margin-bottom: 1rem;
 }
 
-.navbar-menu {
+.paginas {
   display: flex;
-  flex: 1;
-  justify-content: space-between;
-}
-
-.navbar-start,
-.navbar-end {
-  display: flex;
-<<<<<<< Updated upstream
-  align-items: center;
-=======
   flex-direction: column;
-  align-items: flex-start;
   width: 100%;
->>>>>>> Stashed changes
+  flex-grow: 1;
 }
 
 .paginas a {
   margin: 0.5rem 0;
   text-decoration: none;
   color: var(--branco2-pro4tech);
-  font-size: 0.8rem;
-  width: 100%;
-  padding-left: 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.7rem 1rem;
   box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s;
+  border-radius: 40px; /* Adicionado border-radius para arredondar as bordas */
+}
+
+.paginas a:hover {
+  background-color: #ffffff;
+  color: #000000;
+  transform: translateX(5px);
+}
+
+.paginas i {
+  margin-right: 12px;
+  width: 20px;
+  text-align: center;
+  font-size: 1.1rem;
+  transition: color 0.3s;
+}
+
+.paginas a:hover i {
+  color: #000000;
+}
+
+.sair {
+  margin-top: auto;
+  width: 100%;
+}
+
+.sair a {
+  margin: 0.5rem 0;
+  text-decoration: none;
+  color: var(--branco2-pro4tech);
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.7rem 1rem;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s;
+  border-radius: 40px;
+}
+
+.sair a:hover {
+  background-color: #ffffff;
+  color: #000000;
+  transform: translateX(5px);
+}
+
+.sair i {
+  margin-right: 12px;
+  width: 20px;
+  text-align: center;
+  font-size: 1.1rem;
+  transition: color 0.3s;
+}
+
+.sair a:hover i {
+  color: #000000;
 }
 
 .router-link-active {
   font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 40px; /* Adicionado border-radius para arredondar as bordas */
+}
+
+.router-link-active:hover {
+  background-color: #ffffff;
+  color: #000000;
 }
 </style>
