@@ -17,6 +17,7 @@
   /* Cores fundo pro4tech */
   --branco1-pro4tech: #ffffff;
   --branco2-pro4tech: #edeff0;
+  --hover: #019cbb80;
 }
 
 :root {
@@ -26,6 +27,7 @@
   --sombra-cinza2-pro4tech: #c2c2c2;
   --sombra_laranja1-pro4tech: #be602f;
   --sombre_laranja2-pro4tech: #c29c80;
+  --preto-fora-de-foco: #7f7f7f;
 }
 
 :root {
