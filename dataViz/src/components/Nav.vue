@@ -6,7 +6,7 @@ export default {
 
 <template>
   <div class="navbar">
-    <div class="navbar-end">
+    <div class="paginas">
       <router-link to="/about">About</router-link>
       <router-link to="/contact">Contact</router-link>
     </div>
@@ -18,23 +18,18 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: var(--azul3-pro4tech);
+  background: var(--vt-c-black);
   color: var(--branco2-pro4tech);
   padding: 1rem;
-  min-height: calc(100vh - 14vh);
-  margin: 7vh 0;
+  min-height: calc(100vh - 7vh);
+
+  margin: 3vh;
   border-radius: var(--raio_border-default);
 }
 
-.navbar-menu {
+.paginas {
   display: flex;
-  flex: 1;
-  justify-content: space-between;
-}
-
-.navbar-start,
-.navbar-end {
-  display: flex;
+  flex-direction: column;
   align-items: center;
 }
 

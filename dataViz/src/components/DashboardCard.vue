@@ -117,7 +117,7 @@ canvas {
 .card-image {
   width: 100%;
   height: auto;
-  border-radius: 8px;
+  border-radius: var(--raio_border-default);
   margin-bottom: 8px;
 }
 

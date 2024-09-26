@@ -2,15 +2,13 @@
 
 #app {
   max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  margin: 0;
   font-weight: normal;
 }
 
-a,
-.green {
+a {
   text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
+  color: var(--preto-fora-de-foco);
   transition: 0.4s;
   padding: 3px;
 }
@@ -30,6 +28,6 @@ a,
   #app {
     display: grid;
     grid-template-columns: 1fr 7fr;
-    padding: 0 2rem;
+    padding: 0;
   }
 }
