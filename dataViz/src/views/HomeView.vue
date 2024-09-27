@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <!-- <div class="wrapper">
     <div class="resumes">
       <ResumeCard title="Canditos" resume="DDDD" />
       <ResumeCard title="Total de vagas" resume="DDDD" />
@@ -12,7 +12,9 @@
     <div class="VagasRecentes">
       <DashboardCard title="ttt" description="DDDD" />
     </div>
-  </div>
+  </div> -->
+
+  <GraphTest></GraphTest>
 
 </template>
 
@@ -20,32 +22,50 @@
   import DashboardCard from '../components/DashboardCard.vue'
   import ResumeCard from '../components/ResumeCard.vue'
   import GraphTest from '../components/GraphTest.vue'
-  import { onMounted, ref } from 'vue';
+  import { onMounted, ref, computed } from 'vue';
   import apiClient from '@/api/client';
 
-  const chartData = ref([]);
+  // const chartData = ref([]);
 
-  const transformData = (data) => {
-    chartData.value = Object.entries(data)
-  };
+  // const plainChartData = computed(() => [...chartData.value]);
 
-  const fetchDataTempoMedio = async () => {
+  // const transformData = (data) => {
 
-    console.log("function fired");
+  //   const transformedEntries = Object.entries(data).map(([key, value]) => {
+  //     return [key, value];
+  //   });
 
-    try {
-      const response = await apiClient.get("/fatoContratacoes/tempo-medio-por-vaga");
-      transformData(response.data);
-    } catch (error) {
-      console.error("Erro ao pegar dados pela API: ", error)
-    }
-  };
+  //   chartData.value = transformedEntries;
 
-  onMounted(() => {
-    console.log("onmounted");
-    fetchDataTempoMedio();
-    console.log(chartData);
-  });
+  //   console.log("new chartdata: ", chartData.value);
+
+    
+  // };
+
+  // console.log("plain: ", plainChartData);
+
+  // const fetchDataTempoMedio = async () => {
+
+  //   console.log("function fired");
+
+  //   try {
+  //     const response = await fetch('http://localhost:9090/api/fatoContratacoes/tempo-medio-por-vaga');
+  //     if (!response.ok) {
+  //       throw new Error('Network response was not ok');
+  //     }
+  //     console.log("response: ", response);
+  //     const data = await response.json();
+  //     console.log("data: ", data );
+  //     transformData(data);
+  //   } catch (error) {
+  //     console.error("Erro ao pegar dados pela API: ", error)
+  //   }
+  // };
+
+  // onMounted(() => {
+  //   console.log("onmounted");
+  //   fetchDataTempoMedio();
+  // });
 
 </script>
 
