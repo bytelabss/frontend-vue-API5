@@ -1,23 +1,15 @@
 <script setup>
-import DashboardCard from '../components/DashboardCard.vue'
-import ResumeCard from '../components/ResumeCard.vue'
+import TempoMedioDeContratacaoPorVaga from '@/components/TempoMedioDeContratacaoPorVaga.vue';
+import QuantidadeContratacoesPorRh from '@/components/QuantidadeContratacoesPorRh.vue';
 </script>
 
 <template>
   <div class="wrapper">
-    <div class="resumes">
-      <ResumeCard title="Canditos" resume="DDDD" />
-      <ResumeCard title="Total de vagas" resume="DDDD" />
-      <ResumeCard title="Candidatos por vaga" resume="DDDD" />
+    <TempoMedioDeContratacaoPorVaga/>
     </div>
-    <div class="dashs">
-      <DashboardCard title="ttt" description="DDDD" />
-      <DashboardCard title="ttt" description="DDDD" />
+    <div class="wrapper">
+    <QuantidadeContratacoesPorRh/>
     </div>
-    <div class="VagasRecentes">
-      <DashboardCard title="ttt" description="DDDD" />
-    </div>
-  </div>
 </template>
 
 <style scoped>
