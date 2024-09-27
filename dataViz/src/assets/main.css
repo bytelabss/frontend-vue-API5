@@ -42,6 +42,7 @@ a {
     display: flex;
     flex-direction: column;
     font-weight: normal;
+    height: auto;
 
     header {
       width: 100%;
@@ -50,6 +51,7 @@ a {
 
     main {
       flex: unset;
+      height: auto;
     }
   }
 }
