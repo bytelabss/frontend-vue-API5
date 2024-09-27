@@ -1,9 +1,3 @@
-<script setup>
-import DashboardCard from '../components/DashboardCard.vue'
-import ResumeCard from '../components/ResumeCard.vue'
-import GraphTest from '../components/GraphTest.vue'
-</script>
-
 <template>
   <div class="wrapper">
     <div class="resumes">
@@ -13,7 +7,7 @@ import GraphTest from '../components/GraphTest.vue'
     </div>
     <div class="dashs">
       <DashboardCard title="ttt" description="DDDD" />
-      <GraphTest></GraphTest>
+      <GraphTest :data="chartData"></GraphTest>
     </div>
     <div class="VagasRecentes">
       <DashboardCard title="ttt" description="DDDD" />
@@ -21,6 +15,39 @@ import GraphTest from '../components/GraphTest.vue'
   </div>
 
 </template>
+
+<script setup>
+  import DashboardCard from '../components/DashboardCard.vue'
+  import ResumeCard from '../components/ResumeCard.vue'
+  import GraphTest from '../components/GraphTest.vue'
+  import { onMounted, ref } from 'vue';
+  import apiClient from '@/api/client';
+
+  const chartData = ref([]);
+
+  const transformData = (data) => {
+    chartData.value = Object.entries(data)
+  };
+
+  const fetchDataTempoMedio = async () => {
+
+    console.log("function fired");
+
+    try {
+      const response = await apiClient.get("/fatoContratacoes/tempo-medio-por-vaga");
+      transformData(response.data);
+    } catch (error) {
+      console.error("Erro ao pegar dados pela API: ", error)
+    }
+  };
+
+  onMounted(() => {
+    console.log("onmounted");
+    fetchDataTempoMedio();
+    console.log(chartData);
+  });
+
+</script>
 
 <style scoped>
 .wrapper {
