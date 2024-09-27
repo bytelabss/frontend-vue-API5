@@ -1,21 +1,15 @@
+<script setup>
+import TempoMedioDeContratacaoPorVaga from '@/components/TempoMedioDeContratacaoPorVaga.vue';
+import QuantidadeContratacoesPorRh from '@/components/QuantidadeContratacoesPorRh.vue';
+</script>
+
 <template>
-  <!-- <div class="wrapper">
-    <div class="resumes">
-      <ResumeCard title="Canditos" resume="DDDD" />
-      <ResumeCard title="Total de vagas" resume="DDDD" />
-      <ResumeCard title="Candidatos por vaga" resume="DDDD" />
+  <div class="wrapper">
+    <TempoMedioDeContratacaoPorVaga/>
     </div>
-    <div class="dashs">
-      <DashboardCard title="ttt" description="DDDD" />
-      <GraphTest :data="chartData"></GraphTest>
+    <div class="wrapper">
+    <QuantidadeContratacoesPorRh/>
     </div>
-    <div class="VagasRecentes">
-      <DashboardCard title="ttt" description="DDDD" />
-    </div>
-  </div> -->
-
-  <GraphTest></GraphTest>
-
 </template>
 
 <script setup>
