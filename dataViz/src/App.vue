@@ -7,12 +7,10 @@ import NavBar from './components/Nav.vue'
 </script>
 
 <template>
-  <div id="app">
-    <header>
-      <NavBar />
-    </header>
-    <main>
-      <router-view />
-    </main>
-  </div>
+  <header>
+    <NavBar />
+  </header>
+  <main>
+    <router-view />
+  </main>
 </template>
