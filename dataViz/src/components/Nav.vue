@@ -5,7 +5,7 @@ export default {
 </script>
 
 <template>
-  <div class="navbar">
+  <nav>
     <div class="perfil">
       <img src="../assets/img/perfil.png" alt="Foto de perfil" class="foto-perfil">
       <span class="nome-usuario">Nicolas Cursino</span>
@@ -32,24 +32,19 @@ export default {
         <i class="fa fa-sign-out-alt"></i> Sair
       </router-link>
     </div>
-  </div>
+  </nav>
 </template>
 
 <style scoped>
-.navbar {
+nav {
   display: flex;
+  flex: 1;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   background: #554d96;
   color: #554d96;
   padding: 1rem 0.5rem;
-  width: 200px;
-  height: 100vh;
-  position: fixed;  
-  top: 0;
-  left: 0;
-  margin: 0;
   border-radius: 0; /* Removido o border-radius */
 }
 
