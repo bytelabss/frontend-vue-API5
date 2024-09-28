@@ -2,6 +2,7 @@
 import TempoMedioDeContratacaoPorVaga from '@/components/TempoMedioDeContratacaoPorVaga.vue';
 import QuantidadeContratacoesPorRh from '@/components/QuantidadeContratacoesPorRh.vue';
 import TempoMedioPorProcessoSeletivo from '@/components/TempoMedioPorProcessoSeletivo.vue';
+import QuantidadeDeProcessoSeletivo from '@/components/QuantidadeDeProcessoSeletivo.vue';
 </script>
 
 <template>
@@ -12,7 +13,10 @@ import TempoMedioPorProcessoSeletivo from '@/components/TempoMedioPorProcessoSel
     <QuantidadeContratacoesPorRh/>
     </div>
     <div class="wrapper">
-      <TempoMedioPorProcessoSeletivo />
+    <TempoMedioPorProcessoSeletivo />
+    </div>
+    <div class="wrapper">
+    <QuantidadeDeProcessoSeletivo/>
     </div>
 </template>
 
