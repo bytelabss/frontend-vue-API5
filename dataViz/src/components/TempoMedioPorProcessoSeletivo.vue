@@ -20,7 +20,7 @@
     methods: {
         async fetchData() {
             try {
-                const response = await fetch('http://localhost:9090/api/fatoContratacoes/tempo-medio-por-vaga');
+                const response = await fetch('http://localhost:9090/api/fatoContratacoes?inicio=2023-01-04T00:00:00&fim=2024-01-30T00:00:00');
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
@@ -30,8 +30,13 @@
                 console.error('Erro ao buscar dados:', error);
             }
         },
+        //transforma array de objetos recebido como data do back em um único objeto
         transformData(data) {
-            this.chartData = Object.entries(data);
+            this.chartData = data.reduce((acc, curr) => {
+                acc[curr.nome] = curr.tempo_medio;
+                return acc;
+            }, {});
+            console.log(this.chartData);
         }
     }
 };
