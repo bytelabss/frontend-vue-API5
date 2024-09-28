@@ -41,7 +41,7 @@
       </div>
   
       <div>
-        <bar-chart :data="chartData"></bar-chart>
+        <pie-chart :data="chartData" :colors="['#00b7a3', '#019cbb', '#3a6aaa']" :donut="true"></pie-chart>
       </div>
     </div>
   </template>
