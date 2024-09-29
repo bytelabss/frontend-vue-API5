@@ -39,7 +39,7 @@
           </select>
         </div>
       </div>
-    <bar-chart :data="chartData"></bar-chart>  
+    <bar-chart :data="chartData" :colors="['#019cbb', '#3a6aaa', '#019cbb']"></bar-chart>  
   </div>
 </template>
 

@@ -7,8 +7,9 @@ export default {
 <template>
   <nav>
     <div class="perfil">
-      <img src="../assets/img/perfil.png" alt="Foto de perfil" class="foto-perfil">
-      <span class="nome-usuario">Nicolas Cursino</span>
+      <img src="../assets/img/leleco.png" alt="Foto de perfil" class="foto-perfil">
+      <span class="nome-usuario">Bem Vindo,</span>
+      <span class="nome-usuario">FATEC</span>
     </div>
     <div class="paginas">
       <router-link to="/dashboard">
@@ -56,8 +57,8 @@ nav {
 }
 
 .foto-perfil {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 0.5rem;
@@ -68,7 +69,6 @@ nav {
   font-weight: bold;
   text-align: center;
   color: var(--branco2-pro4tech);
-  margin-bottom: 1rem;
 }
 
 .paginas {
