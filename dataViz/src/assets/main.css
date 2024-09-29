@@ -1,35 +1,57 @@
 @import './base.css';
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-weight: normal;
+html, body, #app {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-a,
-.green {
+#app {
+  display: flex;
+  flex-direction: row;
+  font-weight: normal;
+
+  header {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1;
+    overflow: auto;
+  }
+}
+
+a {
+  color: var(--branco1-pro4tech);
   text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
 }
 
 @media (hover: hover) {
   a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
+    background-color: var(--hover);
+    border-radius: calc(var(--raio_border-default) / 2);
+    padding: 5%;
   }
 }
 
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
-
+@media (max-width: 680px) {
   #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    font-weight: normal;
+    height: auto;
+
+    header {
+      width: 100%;
+      height: auto;
+    }
+
+    main {
+      flex: unset;
+      height: auto;
+    }
   }
 }

@@ -1,15 +1,27 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <h1>About Us</h1>
+    <p>This is a generic about page for our application.</p>
   </div>
 </template>
 
-<style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
+<script>
+export default {
+  name: 'AboutView',
+};
+</script>
+
+<style scoped>
+.about {
+  padding: 20px;
+}
+
+.about h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.about p {
+  font-size: 1.2em;
 }
 </style>
