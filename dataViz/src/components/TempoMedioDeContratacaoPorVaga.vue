@@ -1,6 +1,9 @@
 <template>
     <div>
-        <column-chart :data="chartData" :colors="['#e88700', '#3903fc', '#3903fc', '#3903fc', '#e88700', '#e88700']"></column-chart>
+        <h1 class="titulo">Tempo Médio de Contratação por Vaga</h1>
+        <div>
+            <column-chart :data="chartData" :colors="['#e88700', '#3903fc', '#3903fc', '#3903fc', '#e88700', '#e88700']"></column-chart>
+        </div>
     </div>
 </template>
 
@@ -34,3 +37,14 @@ export default {
     }
 };
 </script>
+
+<style scoped>
+
+    .titulo {
+        text-align: center;
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+</style>

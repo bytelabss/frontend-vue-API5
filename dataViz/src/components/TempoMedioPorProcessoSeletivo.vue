@@ -1,7 +1,8 @@
 <template>
-  <div style="width:600px;">
-    <column-chart :data="chartData" :colors="['#3903fc', '#e88700', '#3903fc']"></column-chart>
-  </div>
+    <div>
+        <h1 class="titulo">Tempo Médio de Contratação por Processo Seletivo</h1>
+        <column-chart :data="chartData" :colors="['#3903fc', '#e88700', '#3903fc']"></column-chart>
+    </div>
 </template>
 
 
@@ -42,3 +43,14 @@
 };
 
 </script>
+
+<style scoped>
+
+    .titulo {
+        text-align: center;
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+</style>
