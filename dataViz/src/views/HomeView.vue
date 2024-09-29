@@ -7,26 +7,35 @@ import QuantidadeDeProcessoSeletivo from '@/components/QuantidadeDeProcessoSelet
 
 <template>
   <div class="wrapper">
-    <TempoMedioDeContratacaoPorVaga/>
+    <div class="row">
+      <div class="graph"><TempoMedioDeContratacaoPorVaga/></div>
+      <div class="graph"><QuantidadeContratacoesPorRh/></div>
     </div>
-    <div class="wrapper">
-    <QuantidadeContratacoesPorRh/>
+    <div class="row">
+      <div class="graph"><TempoMedioPorProcessoSeletivo /></div>
+      <div class="graph"><QuantidadeDeProcessoSeletivo/></div>
     </div>
-    <div class="wrapper">
-    <TempoMedioPorProcessoSeletivo />
-    </div>
-    <div class="wrapper">
-    <QuantidadeDeProcessoSeletivo/>
-    </div>
+  </div>
 </template>
 
 <style scoped>
 .wrapper {
+  padding: 1.5rem 3rem ;
+}
+
+.row {
   display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: center;
-  overflow: hidden;
+  flex: 1;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-bottom: 2rem;
+  justify-content: center;
+}
+
+.graph {
+  flex: 1;
+  min-width: 420px;
+  padding: 2rem;
 }
 
 .resumes {
@@ -49,5 +58,27 @@ import QuantidadeDeProcessoSeletivo from '@/components/QuantidadeDeProcessoSelet
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+}
+
+
+@media (max-width: 680px) {
+  .wrapper {
+    padding: 1rem ;
+  }
+
+  .row {
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-bottom: 0;
+  }
+
+  .graph {
+    flex: 1;
+    min-width: 420px;
+    padding: 0;
+    margin-bottom: 3rem;
+  }
 }
 </style>
