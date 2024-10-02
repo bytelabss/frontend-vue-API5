@@ -7,31 +7,19 @@ export default {
 <template>
   <nav>
     <div class="perfil">
-      <img src="../assets/img/leleco.png" alt="Foto de perfil" class="foto-perfil">
+      <img src="../assets/img/leleco.png" alt="Foto de perfil" class="foto-perfil" />
       <span class="nome-usuario">Bem Vindo,</span>
       <span class="nome-usuario">FATEC</span>
     </div>
     <div class="paginas">
-      <router-link to="/dashboard">
-        <i class="fa fa-chart-line"></i> Dashboard
-      </router-link>
-      <router-link to="/vagas">
-        <i class="fa fa-briefcase"></i> Vagas
-      </router-link>
-      <router-link to="/candidatos">
-        <i class="fa fa-users"></i> Candidatos
-      </router-link>
-      <router-link to="/analises">
-        <i class="fa fa-chart-line"></i> Análises
-      </router-link>
-      <router-link to="/opcoes">
-        <i class="fa fa-cog"></i> Opções
-      </router-link>
+      <router-link to="/"> <i class="fa fa-chart-line"></i> Dashboard </router-link>
+      <router-link to="/vagas"> <i class="fa fa-briefcase"></i> Vagas </router-link>
+      <router-link to="/candidatos"> <i class="fa fa-users"></i> Candidatos </router-link>
+      <router-link to="/analises"> <i class="fa fa-chart-line"></i> Análises </router-link>
+      <router-link to="/opcoes"> <i class="fa fa-cog"></i> Opções </router-link>
     </div>
     <div class="sair">
-      <router-link to="/sair">
-        <i class="fa fa-sign-out-alt"></i> Sair
-      </router-link>
+      <router-link to="/sair"> <i class="fa fa-sign-out-alt"></i> Sair </router-link>
     </div>
   </nav>
 </template>
