@@ -12,7 +12,7 @@ export default {
       <span class="nome-usuario">FATEC</span>
     </div>
     <div class="paginas">
-      <router-link to="/dashboard">
+      <router-link to="/">
         <i class="fa fa-chart-line"></i> Dashboard
       </router-link>
       <router-link to="/vagas">
