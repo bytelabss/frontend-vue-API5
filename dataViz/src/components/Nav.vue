@@ -12,7 +12,7 @@ export default {
       <span class="nome-usuario">FATEC</span>
     </div>
     <div class="paginas">
-      <router-link to="/dashboard">
+      <router-link to="/">
         <i class="fa fa-chart-line"></i> Dashboard
       </router-link>
       <router-link to="/vagas">
@@ -21,8 +21,8 @@ export default {
       <router-link to="/candidatos">
         <i class="fa fa-users"></i> Candidatos
       </router-link>
-      <router-link to="/analises">
-        <i class="fa fa-chart-line"></i> Análises
+      <router-link to="/relatorios">
+        <i class="fa fa-chart-line"></i> Relatórios
       </router-link>
       <router-link to="/opcoes">
         <i class="fa fa-cog"></i> Opções
