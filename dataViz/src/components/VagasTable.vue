@@ -3,11 +3,11 @@
         <table>
         <thead>
             <tr>
-                <th @click="sortUsersInteiro('id')"> Id</th>
-                <th @click="sortUsersString('nome')">Nome</th>
-                <th @click="sortDataCriacao('dataCriacao')">Data de criação</th>
-                <th @click="sortUsersString('requisitos')">Requisitos</th>
-                <th @click="sortUsersString('status')">Status</th>
+                <th @click="sortData('id')"> Id</th>
+                <th @click="sortData('nome')">Nome</th>
+                <th @click="sortData('dataCriacao')">Data de criação</th>
+                <th @click="sortData('requisitos')">Requisitos</th>
+                <th @click="sortData('status')">Status</th>
             </tr>
         </thead>
         <tbody v-for="vaga in vagas" :key="vaga.id">
@@ -24,36 +24,75 @@
 </template>
 
 <script>
+
 export default {
     name: 'TabelaVagas',
     data() {
         return {
-            vagas :[
-            ]
+            vagas :[],
+            ordemData : Boolean
         };
     },
     async mounted() {
         await this.fetchData();
-        console.log(this.vagas)
     },
     methods: {
-        sortUsersString: function(chave) {
-            console.log(chave)
-            this.vagas.sort(function(a, b) {
-                return a[chave].localeCompare(b[chave])
-            });
+        isArraySortedAsc: function(array, chave) {
+            for (let i = 0; i < array.length - 1; i++) {
+                if(chave == "dataCriacao"){
+                    if (new Date(array[i + 1][chave]) > new Date(array[i][chave])) {
+                        return false; // O array não está ordenado
+                    }
+                }
+                else{
+                    if(typeof array[i][chave] == "string"){
+                        if (array[i + 1][chave].localeCompare(array[i][chave]) > 0) {
+                            return false; // O array não está ordenado
+                        } 
+                    }
+                    else{
+                        if (array[i + 1][chave] > (array[i][chave])) {
+                            return false; // O array não está ordenado
+                        } //inteiro
+                    }
+                    
+                }
+            }
+            return true; // O array está ordenado
         },
-        sortDataCriacao: function(chave) {
-            console.log(chave)
-            this.vagas.sort(function(a, b) {
-                return b[chave].localeCompare(a[chave])
-            });
-        },
-        sortUsersInteiro: function(chave) {
-            console.log(chave)
-            this.vagas.sort(function(a, b) {
-                return a[chave]-b[chave]
-            });
+        sortData: function(chave) {
+            if( this.isArraySortedAsc(this.vagas, chave))
+            {
+                if(chave == "dataCriacao"){
+                    this.vagas.sort(function(a, b) {
+                        return new Date(a[chave]) - new Date(b[chave])
+                    });
+                }  
+                else{
+                    this.vagas.sort(function(a, b) {
+                        if(typeof a[chave] == "string"){
+                            return a[chave].localeCompare(b[chave]);
+                        }
+                        return a[chave] - (b[chave])
+                    });
+                }
+            }
+            else{
+                if(chave == "dataCriacao"){
+                    this.vagas.sort(function(a, b) {
+                        return new Date(b[chave]) - new Date(a[chave])
+                    });
+                }  
+                else{
+                    this.vagas.sort(function(a, b) {
+                        if(typeof a[chave] == "string"){
+                            return b[chave].localeCompare(a[chave])
+                        }
+                        return b[chave] - (a[chave])
+                    });
+                }
+            }
+            
         },
         async fetchData() {
             try {
