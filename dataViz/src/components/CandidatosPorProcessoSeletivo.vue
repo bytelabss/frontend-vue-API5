@@ -6,6 +6,12 @@
             <input type="number" v-model="numeroProcessoSeletivo" @change="fetchData" placeholder="Digite o número do processo" />
         </div>
 
+        <div>
+            <label for="nomeProcessoSeletivo">Nome do Processo Seletivo:</label>
+            <input type="text" v-model="nomeProcessoSeletivo" @change="fetchDataByName" placeholder="Digite o nome do processo" />
+        </div>
+
+
         <table>
         <thead>
             <tr>
@@ -29,17 +35,28 @@
 export default {
     name: 'TabelaCandidatosPorProcessoSeletivo',
     data() {
-        return {
-            numeroProcessoSeletivo: '', 
-            vagas :[]
-        };
-    },
-    async mounted() {
-        if (this.numeroProcessoSeletivo) {
-            await this.fetchData();
+    return {
+        numeroProcessoSeletivo: '', 
+        nomeProcessoSeletivo: '',
+        vagas: []
+    };
+},
+methods: {
+    async fetchDataByName() {
+        if (!this.nomeProcessoSeletivo) {
+            return;
+        }
+        try {
+            const response = await fetch(`http://localhost:9090/api/fatoAvaliacoes/buscarPorNomeProcessoSeletivo?nomeProcessoSeletivo=${this.nomeProcessoSeletivo}`);
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            const data = await response.json();
+            this.transformData(data);
+        } catch (error) {
+            console.error('Erro ao buscar dados:', error);
         }
     },
-    methods: {
         sortUsersString: function(chave) {
             console.log(chave)
             this.vagas.sort(function(a, b) {
