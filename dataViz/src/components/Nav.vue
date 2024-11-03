@@ -18,6 +18,9 @@ export default {
       <router-link to="/vagas">
         <i class="fa fa-briefcase"></i> Vagas
       </router-link>
+      <router-link to="/alarmes">
+        <i class="fa fa-briefcase"></i> Alarmes
+      </router-link>
       <router-link to="/candidatos">
         <i class="fa fa-users"></i> Candidatos
       </router-link>
