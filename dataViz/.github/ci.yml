@@ -6,10 +6,12 @@ on:FE
     branches:
       - main
       - dev
+      - BYTE-143: criar base de ci para frontend
   pull_request:
     branches:
       - main
       - dev
+      - BYTE-143: criar base de ci para frontend
 
 # Define os jobs
 jobs:
