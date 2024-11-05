@@ -1,7 +1,7 @@
 name: CI - Vue.js
 
 # Define em quais eventos o workflow será executado
-on:FE
+on:
   push:
     branches:
       - main
