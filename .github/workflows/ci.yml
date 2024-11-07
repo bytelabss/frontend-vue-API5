@@ -39,5 +39,4 @@ jobs:
 
       # Passo 5: Faz o build do projeto
       - name: Build project
-        run: npm run dev
-      #para teste
+        run: npm run build
