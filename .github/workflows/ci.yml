@@ -6,14 +6,12 @@ on:
     branches:
       - main
       - dev
-      - "BYTE-143: criar base de ci para frontend"
-      - "BYTE-143-teste-base-ci"
+      - "BYTE-143-front-base-ci"
   pull_request:
     branches:
       - main
       - dev
-      - "BYTE-143: criar base de ci para frontend"
-      - "BYTE-143-teste-base-ci"
+      - "BYTE-143-front-base-ci"
       
 # Define os jobs
 jobs:
