@@ -11,7 +11,7 @@
             :isVisible="showModal"
             :selects="selectOptions"
             @close="showModal = false"
-            @submit="handleFormSubmit"
+            @submitFormData="handleFormSubmit"
         />
     </div>
   </template>
@@ -23,45 +23,9 @@
   // Reactive variable to control modal visibility
   const showModal = ref(false);
   
-  // Define select options for the modal, each with label and options
-  const selectOptions = [
-    {
-      label: "Escolha o modelo de visualização:",
-      options: [
-        { value: "coluna", text: "Gráfico de colunas" },
-        { value: "barra", text: "Gráfico de barras" },
-        { value: "pizza", text: "Gráfico de pizza" },
-      ],
-    },
-    {
-      label: "Escolha o campo a ser analisado:",
-      options: [
-        { value: "carrot", text: "Vagas" },
-        { value: "broccoli", text: "Processos Seletivos" },
-        { value: "spinach", text: "Candidatos" },
-      ],
-    },
-    {
-      label: "Choose a Protein",
-      options: [
-        { value: "chicken", text: "Chicken" },
-        { value: "tofu", text: "Tofu" },
-        { value: "beef", text: "Beef" },
-      ],
-    },
-    {
-      label: "Choose a Beverage",
-      options: [
-        { value: "water", text: "Water" },
-        { value: "juice", text: "Juice" },
-        { value: "soda", text: "Soda" },
-      ],
-    },
-  ];
-  
   // Function to handle form submission data from the modal
-  function handleFormSubmit(formData) {
-    console.log("Form Submitted with Data:", formData);
+  function handleFormSubmit(transformedData) {
+    console.log("Form Submitted with Data:", transformedData);
     // Process form data as needed, e.g., save it, send it to an API, etc.
   }
   </script>

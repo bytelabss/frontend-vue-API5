@@ -81,6 +81,17 @@
               <option value="Descendent">Descendent</option>
             </select>
           </div>
+
+          <!-- Description Text Field -->
+          <div class="form-group">
+            <label for="description">Description</label>
+            <input
+                id="description"
+                type="text"
+                v-model="formData.description"
+                placeholder="Escreva a descrição da sua análise."
+            />
+          </div>
   
           <!-- Form Buttons -->
           <div class="button-group">
@@ -120,6 +131,7 @@
     conditionValue: "",
     sortField: "",
     sortDirection: "",
+    description: "",
   });
   
   // Options for the third select, depending on the second select's value
@@ -143,6 +155,43 @@
   
   // Reactive option list for the third select
   const fieldOptions = ref([]);
+
+  const transformData = () => {
+    // Determine the "from" value based on the selected analysis area
+    let fromValue;
+    switch (formData.value.analysisArea) {
+        case "Contratações":
+        fromValue = "fatec.bytelabss.api.models.FatoContratacoes";
+        break;
+        case "Processos Seletivos":
+        fromValue = "fatec.bytelabss.api.models.DimProcessoSeletivo";
+        break;
+        case "Vagas":
+        fromValue = "fatec.bytelabss.api.models.DimVaga";
+        break;
+        default:
+        fromValue = "fatec.bytelabss.api.models.FatoContratacoes"; // Or handle this case appropriately if needed
+    }
+
+    return {
+        query: {
+            fields: formData.value.analysisFields,
+            from: fromValue,
+            conditions: [
+                {
+                field: formData.value.conditionField,
+                operator: formData.value.conditionOperator,
+                value: formData.value.conditionValue || "0", // Default if input is empty
+                },
+            ],
+            limit: 10, // Adjust if dynamic limits are needed
+            groupBy: formData.value.grouping ? [formData.value.grouping] : [],
+            orderByField: formData.value.sortField,
+            orderByDirection: formData.value.sortDirection === "Ascendent" ? "ASC" : "DESC",
+        },
+        description: formData.value.description || "Analise", // Default if description is empty
+    };
+  };
   
   // Update field options based on the selected analysis area
   function updateFieldsOptions() {
@@ -156,7 +205,8 @@
   
   // Handle form submission
   function handleSubmit() {
-    emit("submit", formData.value);
+    const transformedData = transformData();
+    emit("submitFormData", transformedData);
     closeModal();
   }
   
