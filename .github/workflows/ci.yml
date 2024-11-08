@@ -1,19 +1,14 @@
 name: CI - Vue.js
 
-# Define em quais eventos o workflow será executado
 on:
   push:
     branches:
-      - main
-      - dev
-      - "BYTE-143-front-base-ci"
+      - "**"  
   pull_request:
     branches:
       - main
-      - dev
-      - "BYTE-143-front-base-ci"
-      
-# Define os jobs
+      - dev  
+
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
@@ -33,10 +28,18 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # Passo 4: Executa os testes
-      # - name: Run tests
-      #   run: npm run test:unit 
+      # Passo 4: Executa os testes - apenas unitários para push
+      - name: Run unit tests
+        run: npm run test:unit
+        if: github.event_name == 'push'
 
-      # Passo 5: Faz o build do projeto
+      # Passo 5: Executa os testes - unitários e integração para PR
+      - name: Run tests for PR
+        run: |
+          npm run test:unit
+          npm run test:e2e
+        if: github.event_name == 'pull_request'
+
+      # Passo 6: Faz o build do projeto
       - name: Build project
         run: npm run build
