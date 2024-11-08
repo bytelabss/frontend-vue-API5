@@ -34,17 +34,7 @@
             </select>
           </div>
   
-          <!-- Fourth Select -->
-          <div class="form-group">
-            <label for="select4">Escolha o agrupamento</label>
-            <select id="select4" v-model="formData.grouping">
-              <option v-for="field in formData.analysisFields" :key="field" :value="field">
-                {{ field }}
-              </option>
-            </select>
-          </div>
-  
-          <!-- Fifth Conditional Sub-Form -->
+          <!-- Fourth Conditional Sub-Form -->
           <div class="form-group condition">
             <label>Escolha a condição</label>
             <select v-model="formData.conditionField">
@@ -61,6 +51,16 @@
               <option value="LIKE">LIKE</option>
             </select>
             <input type="text" v-model="formData.conditionValue" placeholder="Enter condition value" />
+          </div>
+
+          <!-- Fifth Select -->
+          <div class="form-group">
+            <label for="select4">Escolha o agrupamento</label>
+            <select id="select4" v-model="formData.grouping">
+              <option v-for="field in formData.analysisFields" :key="field" :value="field">
+                {{ field }}
+              </option>
+            </select>
           </div>
   
           <!-- Sixth Select -->
@@ -256,5 +256,9 @@
     display: flex;
     justify-content: flex-end;
     gap: 10px;
+  }
+
+  label {
+    color: white;
   }
 </style>
