@@ -54,14 +54,14 @@
           </div>
 
           <!-- Fifth Select -->
-          <div class="form-group">
+          <!-- <div class="form-group">
             <label for="select4">Escolha o agrupamento</label>
             <select id="select4" v-model="formData.grouping">
               <option v-for="field in formData.analysisFields" :key="field" :value="field">
                 {{ field }}
               </option>
             </select>
-          </div>
+          </div> -->
   
           <!-- Sixth Select -->
           <div class="form-group">
@@ -105,7 +105,6 @@
   
 <script setup>
   import { ref } from "vue";
-  import { defineProps, defineEmits } from "vue";
   
   const props = defineProps({
     title: {
@@ -137,19 +136,24 @@
   // Options for the third select, depending on the second select's value
   const areaFieldOptions = {
     "Contratações": [
-      { value: "Data de contratação", text: "Data de contratação" },
-      { value: "Salário", text: "Salário" },
-      { value: "Cargo", text: "Cargo" },
+      { value: "quantidade", text: "Quantidade" },
+      { value: "idTempo", text: "Tempo" },
+      { value: "tempoMedio", text: "Tempo Médio" },
+      { value: "idProcessoSeletivo", text: "Processo Seletivo" },
+      { value: "idVaga", text: "Vaga" },
     ],
     "Processos Seletivos": [
-      { value: "Data de início", text: "Data de início" },
-      { value: "Número de candidatos", text: "Número de candidatos" },
-      { value: "Status", text: "Status" },
+      { value: "nome", text: "Nome" },
+      { value: "status", text: "Status" },
+      { value: "criadoPor", text: "Criado Por" },
+      { value: "inicioProcessoSeletivo", text: "Data de Início" },
+      { value: "fimProcessoSeletivo", text: "Data de Fim" },
     ],
     "Vagas": [
-      { value: "Título da vaga", text: "Título da vaga" },
-      { value: "Localização", text: "Localização" },
-      { value: "Departamento", text: "Departamento" },
+      { value: "tituloVaga", text: "Título da vaga" },
+      { value: "numeroPosicoes", text: "Número de Posições" },
+      { value: "requisitosVaga", text: "Requisitos" },
+      { value: "estado", text: "Status" },
     ],
   };
   
@@ -185,7 +189,7 @@
                 },
             ],
             limit: 10, // Adjust if dynamic limits are needed
-            groupBy: formData.value.grouping ? [formData.value.grouping] : [],
+            groupBy: null,// formData.value.grouping ? [formData.value.grouping] : [],
             orderByField: formData.value.sortField,
             orderByDirection: formData.value.sortDirection === "Ascendent" ? "ASC" : "DESC",
         },
