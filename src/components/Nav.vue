@@ -24,6 +24,9 @@ export default {
       <router-link to="/candidatos">
         <i class="fa fa-users"></i> Candidatos
       </router-link>
+      <router-link to="/analise">
+        <i class="fa fa-users"></i> Análise
+      </router-link>
       <router-link to="/opcoes">
         <i class="fa fa-cog"></i> Opções
       </router-link>

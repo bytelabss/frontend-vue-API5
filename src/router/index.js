@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import VagasView from '@/views/VagasView.vue'
 import CandidatosView from '@/views/CandidatosView.vue';
 import AlarmesView from '@/views/AlarmesView.vue';
+import AnaliseView from '@/views/AnaliseView.vue';
 
 
 const router = createRouter({
@@ -27,6 +28,11 @@ const router = createRouter({
       path: '/candidatos',
       name: 'Candidatos',
       component: CandidatosView
+    },
+    {
+      path: '/analise',
+      name: 'Analise',
+      component: AnaliseView
     }
     // {
     //   path: '/about',
