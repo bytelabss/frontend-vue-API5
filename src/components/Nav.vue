@@ -1,9 +1,3 @@
-<script>
-export default {
-  name: 'NavBar'
-}
-</script>
-
 <template>
   <nav>
     <div class="perfil">
@@ -19,7 +13,10 @@ export default {
         <i class="fa fa-briefcase"></i> Vagas
       </router-link>
       <router-link to="/alarmes">
-        <i class="fa fa-briefcase"></i> Alarmes
+        <i class="fa fa-exclamation-triangle"></i> 
+        <span :class="{
+          'notif-alert': alarmStatus === 'disparado',
+        }">Alarmes - {{ this.alarmCount }}</span>
       </router-link>
       <router-link to="/candidatos">
         <i class="fa fa-users"></i> Candidatos
@@ -36,7 +33,64 @@ export default {
   </nav>
 </template>
 
+<script >
+export default {
+  name: 'NavBar',
+  data() {
+          return {
+              alarmes :[],
+              alarmCount: 0,
+              alarmStatus: 'normal',
+          };
+      },
+      async mounted() { 
+          await this.fetchData();
+      },
+      methods: {
+          checkAlarms() {
+              // Exemplo: Verifique se há alarmes disparados
+              this.alarmCount = this.alarmes.length;
+              if(this.alarmCount > 0){
+                this.alarmStatus = "disparado"
+              }
+              else{
+                this.alarmStatus = "normal"
+              }
+              
+          },
+          async fetchData() {
+              try {
+                  const response = await fetch('http://localhost:9090/api/graficos/alarmesAtivos');
+                  if (!response.ok) {
+                      throw new Error('Network response was not ok');
+                  }
+                  const data = await response.json();
+                  this.transformData(data);
+                  this.checkAlarms();
+              } catch (error) {
+                  console.error('Erro ao buscar dados:', error);
+              }
+          },
+          transformData(data) {
+              this.alarmes = data;
+          }
+      }
+}
+</script>
+
 <style scoped>
+.notif-alert {
+  text-decoration: none;
+  color: #db1919;
+  font-size: 1rem;
+  font-weight: 500;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s;
+  border-radius: 40px; /* Adicionado border-radius para arredondar as bordas */
+}
+
 nav {
   display: flex;
   flex: 1;
@@ -101,6 +155,7 @@ nav {
 .paginas i {
   margin-right: 12px;
   width: 20px;
+  height: 20px;;
   text-align: center;
   font-size: 1.1rem;
   transition: color 0.3s;
