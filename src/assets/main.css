@@ -13,7 +13,6 @@ html, body, #app {
   font-weight: normal;
 
   header {
-    width: 200px;
     display: flex;
     flex-direction: column;
   }
