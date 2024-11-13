@@ -1,13 +1,13 @@
-name: CI - Vue.js
+name: CI - Vue.js - Hotfix
 
 on:
   push:
     branches:
-      - "**"  
+      - 'hotfix*'  
+
   pull_request:
     branches:
-      - main
-      - dev  
+      - 'hotfix*'  
 
 jobs:
   build-and-test:
@@ -28,18 +28,14 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # Passo 4: Executa os testes - apenas unitários para push
+      # Passo 4: Executa os testes unitários 
       - name: Run unit tests
         run: npm run test:unit
-        if: github.event_name == 'push'
 
-      # Passo 5: Executa os testes - unitários e integração para PR
-      - name: Run tests for PR
-        run: |
-          npm run test:unit
-          npm run test:e2e
-        if: github.event_name == 'pull_request'
-
+      # Passo 5: Executa os testes de integração
+      - name: Run integration tests
+        run: npm run test:integration
+       
       # Passo 6: Faz o build do projeto
       - name: Build project
         run: npm run build

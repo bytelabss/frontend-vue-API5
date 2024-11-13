@@ -1,0 +1,37 @@
+name: CI - Vue.js - Byte Branches and CI branches
+
+on:
+  push:
+    branches:
+      - 'byte*'  
+
+  pull_request:
+    branches:
+      - 'byte*'   
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Passo 1: Checa o código do repositório
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Passo 2: Configura o Node.js (especificando a versão do Node)
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18' 
+
+      # Passo 3: Instala dependências
+      - name: Install dependencies
+        run: npm install
+
+      # Passo 4: Executa os testes unitários 
+      - name: Run unit tests
+        run: npm run test:unit
+
+      # Passo 5: Faz o build do projeto
+      - name: Build project
+        run: npm run build
