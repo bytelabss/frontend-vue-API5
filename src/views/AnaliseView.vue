@@ -78,7 +78,7 @@
   
   onMounted(() => {
     axios
-    .get('http://localhost:9090/api/custom-queries')
+    .get(`${import.meta.env.VITE_BASE_API_URL}/custom-queries`)
     .then((response) => {
       queries.value = response.data.map((item) => ({
         id: item.id,
@@ -105,7 +105,7 @@
     // Process form data as needed, e.g., save it, send it to an API, etc.
 
     axios
-    .post('http://localhost:9090/api/custom-queries', transformedData)
+    .post(`${import.meta.env.VITE_BASE_API_URL}/custom-queries`, transformedData)
     .then((response) => {
       // Handle the successful response
       console.log('Query customizada inserida no banco com sucesso! ', response.data);
@@ -113,7 +113,7 @@
       // You can also store the response data in a variable or handle it as needed
       // Example: display the results on the page or store in a ref
       const newQuery = response.data;
-      const customQueryURL = `http://localhost:9090/api/custom-queries/${newQuery.id}/results`;
+      const customQueryURL = `${import.meta.env.VITE_BASE_API_URL}/custom-queries/${newQuery.id}/results`;
       // Add logic here to handle the returned data, like updating state or displaying it
 
       // Update the queries table immediately with the new query data
@@ -149,7 +149,7 @@
 
   // Function to execute an individual query from the table
   function executeQuery(queryId) {
-    const customQueryURL = `http://localhost:9090/api/custom-queries/${queryId}/results`;
+    const customQueryURL = `${import.meta.env.VITE_BASE_API_URL}/custom-queries/${queryId}/results`;
     
     axios
       .get(customQueryURL)
