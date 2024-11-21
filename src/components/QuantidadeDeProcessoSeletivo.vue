@@ -88,7 +88,7 @@ export default {
       try {
         const dataInicial = `${this.anoInicial}-${this.mesInicial.toString().padStart(2, '0')}-01T00:00:00`;
         const dataFinal = `${this.anoFinal}-${this.mesFinal.toString().padStart(2, '0')}-01T00:00:00`;
-        const url = `http://localhost:9090/api/fatoContratacoes/quantidade?inicio=${dataInicial}&fim=${dataFinal}`;
+        const url = `${import.meta.env.VITE_BASE_API_URL}/fatoContratacoes/quantidade?inicio=${dataInicial}&fim=${dataFinal}`;
         
         const response = await fetch(url);
         if (!response.ok) {
@@ -106,7 +106,7 @@ export default {
     },
     async exportExcel() {
       try {
-        const response = await fetch('http://localhost:9090/api/excel/processosSeletivos', {
+        const response = await fetch(`${import.meta.env.VITE_BASE_API_URL}/excel/processosSeletivos`, {
           method: 'GET',
         });
         const blob = await response.blob();
@@ -122,7 +122,7 @@ export default {
     },
     async exportPdf() {
       try {
-        const response = await fetch('http://localhost:9090/api/pdf/processosSeletivos', {
+        const response = await fetch(`${import.meta.env.VITE_BASE_API_URL}/pdf/processosSeletivos`, {
           method: 'GET',
         });
         const blob = await response.blob();
