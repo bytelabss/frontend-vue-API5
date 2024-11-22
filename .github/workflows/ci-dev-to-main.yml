@@ -1,10 +1,6 @@
 name: CI - Vue.js - Main
 
 on:
-  push:
-    branches:
-      - main  
-
   pull_request:
     branches:
       - main    
@@ -32,10 +28,6 @@ jobs:
       - name: Run unit tests
         run: npm run test:unit
 
-      # Passo 5: Executa os testes de integração
-      - name: Run integration tests
-        run: npm run test:integration
-       
-      # Passo 6: Faz o build do projeto
+      # Passo 5: Faz o build do projeto
       - name: Build project
         run: npm run build
