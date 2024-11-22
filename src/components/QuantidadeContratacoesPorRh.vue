@@ -89,7 +89,7 @@ export default {
     async fetchData() {
       try {
         const response = await fetch(
-          `http://localhost:9090/api/fatoContratacoes/quantidadeContratacoesRH?mesInicial=${this.mesInicial}&anoInicial=${this.anoInicial}&mesFinal=${this.mesFinal}&anoFinal=${this.anoFinal}`
+          `${import.meta.env.VITE_BASE_API_URL}/fatoContratacoes/quantidadeContratacoesRH?mesInicial=${this.mesInicial}&anoInicial=${this.anoInicial}&mesFinal=${this.mesFinal}&anoFinal=${this.anoFinal}`
         );
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -105,7 +105,7 @@ export default {
     },
     async exportExcel() {
       try {
-        const response = await fetch('http://localhost:9090/api/excel/participantesRH', {
+        const response = await fetch(`${import.meta.env.VITE_BASE_API_URL}/excel/participantesRH`, {
           method: 'GET',
         });
         const blob = await response.blob();
@@ -121,7 +121,7 @@ export default {
     },
     async exportPdf() {
       try {
-        const response = await fetch('http://localhost:9090/api/pdf/participantesRH', {
+        const response = await fetch(`${import.meta.env.VITE_BASE_API_URL}/pdf/participantesRH`, {
           method: 'GET',
         });
         const blob = await response.blob();

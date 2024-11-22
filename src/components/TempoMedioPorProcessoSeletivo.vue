@@ -23,7 +23,7 @@ export default {
     methods: {
         async fetchData() {
             try {
-                const response = await fetch('http://localhost:9090/api/fatoContratacoes?inicio=2023-01-04T00:00:00&fim=2024-01-30T00:00:00');
+                const response = await fetch(`${import.meta.env.VITE_BASE_API_URL}/fatoContratacoes?inicio=2023-01-04T00:00:00&fim=2024-01-30T00:00:00`);
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
@@ -42,7 +42,7 @@ export default {
         },
         async exportExcel() {
             try {
-                const response = await fetch('http://localhost:9090/api/excel/tempo', {
+                const response = await fetch(`${import.meta.env.VITE_BASE_API_URL}/excel/tempo`, {
                     method: 'GET',
                 });
                 const blob = await response.blob();
@@ -58,7 +58,7 @@ export default {
         },
         async exportPdf() {
             try {
-                const response = await fetch('http://localhost:9090/api/pdf/tempo', {
+                const response = await fetch(`${import.meta.env.VITE_BASE_API_URL}/pdf/tempo`, {
                     method: 'GET',
                 });
                 const blob = await response.blob();
