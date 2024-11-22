@@ -4,11 +4,14 @@ on:
   push:
     branches:
       - 'byte*'  
+      - 'ci*'
+      - 'hotfix*'
 
   pull_request:
     branches:
       - 'byte*'   
-
+      - 'ci*'
+      - 'hotfix*'
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
