@@ -3,13 +3,13 @@ name: CI - Vue.js - Byte Branches and CI branches
 on:
   push:
     branches:
-      - 'byte*'  
+      - 'BYTE*'  
       - 'ci*'
       - 'hotfix*'
 
   pull_request:
     branches:
-      - 'byte*'   
+      - 'BYTE*'   
       - 'ci*'
       - 'hotfix*'
 jobs:
