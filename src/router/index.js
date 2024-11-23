@@ -4,6 +4,7 @@ import VagasView from '@/views/VagasView.vue'
 import CandidatosView from '@/views/CandidatosView.vue';
 import AlarmesView from '@/views/AlarmesView.vue';
 import AnaliseView from '@/views/AnaliseView.vue';
+import CadastroUsuario from '@/views/CadastroUsuariosView.vue';
 
 
 const router = createRouter({
@@ -33,6 +34,11 @@ const router = createRouter({
       path: '/analise',
       name: 'Analise',
       component: AnaliseView
+    }, 
+    {
+      path: '/cadastrousuario',
+      name: 'CadastroUsuario',
+      component: CadastroUsuario
     }
     // {
     //   path: '/about',
