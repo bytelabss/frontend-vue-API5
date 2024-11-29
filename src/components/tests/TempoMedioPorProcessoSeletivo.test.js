@@ -1,10 +1,11 @@
 import { describe, it, expect } from 'vitest';
-import TempoMedioDeContratacaoPorProcessoSeletivo from '@/components/TempoMedioDeContratacaoPorProcessoSeletivo.vue';
+import TempoMedioPorProcessoSeletivo from '../TempoMedioPorProcessoSeletivo.vue';
+import { mount } from '@vue/test-utils';
 
-describe('TempoMedioDeContratacaoPorProcessoSeletivo - Métodos', () => {
+describe('TempoMedioPorProcessoSeletivo - Métodos', () => {
     it('transformData deve transformar os dados corretamente', () => {
         // Instancia o componente
-        const wrapper = new TempoMedioDeContratacaoPorProcessoSeletivo();
+        const wrapper = mount (TempoMedioPorProcessoSeletivo);
         
         // Dados simulados
         const mockData = [
@@ -13,10 +14,10 @@ describe('TempoMedioDeContratacaoPorProcessoSeletivo - Métodos', () => {
         ];
         
         // Chama o método transformData
-        wrapper.transformData(mockData);
+        wrapper.vm.transformData(mockData);
         
         // Verifica se chartData foi transformado corretamente
-        expect(wrapper.chartData).toEqual({
+        expect(wrapper.vm.chartData).toEqual({
             'Processo A': 10,
             'Processo B': 15,
         });
