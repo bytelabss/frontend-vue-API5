@@ -5,7 +5,7 @@
     <div class="filtros">
       <div class="filtro-item">
         <label for="mesInicial">Mês Inicial:</label>
-        <select v-model="mesInicial" @change="fetchData">
+        <select id="mesInicial" v-model="mesInicial" @change="fetchData">
           <option v-for="mes in meses" :key="mes.numero" :value="mes.numero">
             {{ mes.numero }}
           </option>
@@ -14,7 +14,7 @@
 
       <div class="filtro-item">
         <label for="anoInicial">Ano Inicial:</label>
-        <select v-model="anoInicial" @change="fetchData">
+        <select id="anoInicial" v-model="anoInicial" @change="fetchData">
           <option v-for="ano in anos" :key="ano.numero" :value="ano.numero">
             {{ ano.numero }}
           </option>
@@ -23,7 +23,7 @@
 
       <div class="filtro-item">
         <label for="mesFinal">Mês Final:</label>
-        <select v-model="mesFinal" @change="fetchData">
+        <select id="mesFinal" v-model="mesFinal" @change="fetchData">
           <option v-for="mes in meses" :key="mes.numero" :value="mes.numero">
             {{ mes.numero }}
           </option>
@@ -32,7 +32,7 @@
 
       <div class="filtro-item">
         <label for="anoFinal">Ano Final:</label>
-        <select v-model="anoFinal" @change="fetchData">
+        <select id="anoFinal" v-model="anoFinal" @change="fetchData">
           <option v-for="ano in anos" :key="ano.numero" :value="ano.numero">
             {{ ano.numero }}
           </option>
