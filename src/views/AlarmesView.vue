@@ -1,5 +1,5 @@
 <script setup>
-import AlarmesTable from '@/components/AlarmesTable.vue';
+import AlarmesTable from '../components/AlarmesTable.vue';
 </script>
 
 <template>

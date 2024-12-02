@@ -1,5 +1,5 @@
 <script setup>
-import VagasTable from '@/components/VagasTable.vue';
+import VagasTable from '../components/VagasTable.vue';
 </script>
 
 <template>

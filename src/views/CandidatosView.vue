@@ -1,5 +1,5 @@
 <script setup>
-import TabelaCandidatosPorProcessoSeletivo from '@/components/CandidatosPorProcessoSeletivo.vue';
+import TabelaCandidatosPorProcessoSeletivo from '../components/CandidatosPorProcessoSeletivo.vue';
 </script>
 
 <template>

@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import VagasView from '@/views/VagasView.vue'
-import CandidatosView from '@/views/CandidatosView.vue';
-import AlarmesView from '@/views/AlarmesView.vue';
+import VagasView from '../views/VagasView.vue'
+import CandidatosView from '../views/CandidatosView.vue';
+import AlarmesView from '../views/AlarmesView.vue';
 
 
 const router = createRouter({

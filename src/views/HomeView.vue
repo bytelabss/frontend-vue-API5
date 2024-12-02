@@ -1,8 +1,8 @@
 <script setup>
-import TempoMedioDeContratacaoPorVaga from '@/components/TempoMedioDeContratacaoPorVaga.vue';
-import QuantidadeContratacoesPorRh from '@/components/QuantidadeContratacoesPorRh.vue';
-import TempoMedioPorProcessoSeletivo from '@/components/TempoMedioPorProcessoSeletivo.vue';
-import QuantidadeDeProcessoSeletivo from '@/components/QuantidadeDeProcessoSeletivo.vue';
+import TempoMedioDeContratacaoPorVaga from '../components/TempoMedioDeContratacaoPorVaga.vue';
+import QuantidadeContratacoesPorRh from '../components/QuantidadeContratacoesPorRh.vue';
+import TempoMedioPorProcessoSeletivo from '../components/TempoMedioPorProcessoSeletivo.vue';
+import QuantidadeDeProcessoSeletivo from '../components/QuantidadeDeProcessoSeletivo.vue';
 </script>
 
 <template>
