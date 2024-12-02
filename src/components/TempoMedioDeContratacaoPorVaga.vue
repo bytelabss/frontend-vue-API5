@@ -25,7 +25,7 @@ export default {
     methods: {
         async fetchData() {
             try {
-                const response = await fetch('http://localhost:9090/api/fatoContratacoes/tempo-medio-por-vaga');
+                const response = await fetch(`${import.meta.env.VITE_BASE_API_URL}/fatoContratacoes/tempo-medio-por-vaga`);
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
@@ -40,7 +40,7 @@ export default {
         },
         async exportExcel() {
             try {
-                const response = await fetch('http://localhost:9090/api/excel/vagas', {
+                const response = await fetch(`${import.meta.env.VITE_BASE_API_URL}/excel/vagas`, {
                     method: 'GET',
                 });
                 const blob = await response.blob();
@@ -56,7 +56,7 @@ export default {
         },
         async exportPdf() {
             try {
-                const response = await fetch('http://localhost:9090/api/pdf/vagas', {
+                const response = await fetch(`${import.meta.env.VITE_BASE_API_URL}/pdf/vagas`, {
                     method: 'GET',
                 });
                 const blob = await response.blob();
