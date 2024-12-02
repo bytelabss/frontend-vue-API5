@@ -5,7 +5,7 @@
     <div class="filtros">
       <div class="filtro-item">
         <label for="mesInicial">Mês Inicial:</label>
-        <select v-model="mesInicial" @change="fetchData">
+        <select id="mesInicial" v-model="mesInicial" @change="fetchData">
           <option v-for="mes in meses" :key="mes.numero" :value="mes.numero">
             {{ mes.numero }}
           </option>
@@ -14,7 +14,7 @@
 
       <div class="filtro-item">
         <label for="anoInicial">Ano Inicial:</label>
-        <select v-model="anoInicial" @change="fetchData">
+        <select id="anoInicial" v-model="anoInicial" @change="fetchData">
           <option v-for="ano in anos" :key="ano.numero" :value="ano.numero">
             {{ ano.numero }}
           </option>
@@ -23,7 +23,7 @@
 
       <div class="filtro-item">
         <label for="mesFinal">Mês Final:</label>
-        <select v-model="mesFinal" @change="fetchData">
+        <select id="mesFinal" v-model="mesFinal" @change="fetchData">
           <option v-for="mes in meses" :key="mes.numero" :value="mes.numero">
             {{ mes.numero }}
           </option>
@@ -32,7 +32,7 @@
 
       <div class="filtro-item">
         <label for="anoFinal">Ano Final:</label>
-        <select v-model="anoFinal" @change="fetchData">
+        <select id="anoFinal" v-model="anoFinal" @change="fetchData">
           <option v-for="ano in anos" :key="ano.numero" :value="ano.numero">
             {{ ano.numero }}
           </option>
@@ -88,7 +88,7 @@ export default {
       try {
         const dataInicial = `${this.anoInicial}-${this.mesInicial.toString().padStart(2, '0')}-01T00:00:00`;
         const dataFinal = `${this.anoFinal}-${this.mesFinal.toString().padStart(2, '0')}-01T00:00:00`;
-        const url = `http://localhost:9090/api/fatoContratacoes/quantidade?inicio=${dataInicial}&fim=${dataFinal}`;
+        const url = `${import.meta.env.VITE_BASE_API_URL}/fatoContratacoes/quantidade?inicio=${dataInicial}&fim=${dataFinal}`;
         
         const response = await fetch(url);
         if (!response.ok) {
@@ -106,7 +106,7 @@ export default {
     },
     async exportExcel() {
       try {
-        const response = await fetch('http://localhost:9090/api/excel/processosSeletivos', {
+        const response = await fetch(`${import.meta.env.VITE_BASE_API_URL}/excel/processosSeletivos`, {
           method: 'GET',
         });
         const blob = await response.blob();
@@ -122,7 +122,7 @@ export default {
     },
     async exportPdf() {
       try {
-        const response = await fetch('http://localhost:9090/api/pdf/processosSeletivos', {
+        const response = await fetch(`${import.meta.env.VITE_BASE_API_URL}/pdf/processosSeletivos`, {
           method: 'GET',
         });
         const blob = await response.blob();

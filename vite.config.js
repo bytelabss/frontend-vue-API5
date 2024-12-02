@@ -16,5 +16,12 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
       '@fortawesome': path.resolve(__dirname, 'node_modules/@fortawesome'),
     }
-  }
+  },
+  test: {
+    globals: true,  // Habilita o uso de funções globais como beforeEach, afterEach, etc.
+    environment: 'jsdom',  // Ambiente para testes DOM
+    transformMode: {
+      web: [/\.[jt]sx?$/],  // Garantir a transformação correta de arquivos JS/TSX
+    },
+  },
 })
