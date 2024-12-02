@@ -92,7 +92,7 @@
   
   onMounted(() => {
     axios
-    .get(`${import.meta.env.VITE_BASE_API_URL}/custom-queries`)
+    .get(`${import.meta.env.VITE_BASE_API_URL}/custom-queries/user/${localStorage.getItem("id")}`)
     .then((response) => {
       console.log('get de todas as queries: ', response.data);
 

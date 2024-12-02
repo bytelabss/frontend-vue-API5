@@ -38,7 +38,11 @@ export default {
     methods: {
         async fetchData() {
             try {
-                const response = await fetch(`${import.meta.env.VITE_BASE_API_URL}/graficos/alarmesAtivos`);
+                const response = await fetch(`${import.meta.env.VITE_BASE_API_URL}/graficos/alarmesAtivos`,{
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("authToken")}` // Adiciona o token JWT no cabeçalho
+            }
+          });
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }

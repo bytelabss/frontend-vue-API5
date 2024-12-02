@@ -24,8 +24,8 @@
       <router-link to="/analise">
         Análise
       </router-link>
-      <router-link to="/opcoes">
-        Opções
+      <router-link to="/compartilharDash">
+        Compartilhar análises
       </router-link>
     </div>
     <div class="sair">

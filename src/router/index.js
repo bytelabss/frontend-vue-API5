@@ -6,6 +6,8 @@ import AlarmesView from '@/views/AlarmesView.vue';
 import AnaliseView from '@/views/AnaliseView.vue';
 import CadastroUsuario from '@/views/CadastroUsuariosView.vue';
 import LoginView from '@/views/LoginView.vue';
+import CompartilharDashView from '@/views/CompartilharDashView.vue';
+import Sair from '@/components/Sair.vue';
 
 
 const router = createRouter({
@@ -50,6 +52,18 @@ const router = createRouter({
       path: '/cadastrousuario',
       name: 'CadastroUsuario',
       component: CadastroUsuario,
+      meta: { requiresAuth: true },
+    },
+    {
+      path: '/compartilharDash',
+      name: 'CompartilharDash',
+      component: CompartilharDashView,
+      meta: { requiresAuth: true },
+    },
+    {
+      path: '/sair',
+      name: 'Sair',
+      component: Sair,
       meta: { requiresAuth: true },
     }
     // {
