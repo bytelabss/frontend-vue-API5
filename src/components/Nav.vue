@@ -1,9 +1,3 @@
-<script>
-export default {
-  name: 'NavBar'
-}
-</script>
-
 <template>
   <nav>
     <div class="perfil">
@@ -13,30 +7,91 @@ export default {
     </div>
     <div class="paginas">
       <router-link to="/">
-        <i class="fa fa-chart-line"></i> Dashboard
+        Dashboard
       </router-link>
       <router-link to="/vagas">
-        <i class="fa fa-briefcase"></i> Vagas
+        Vagas
       </router-link>
       <router-link to="/alarmes">
-        <i class="fa fa-briefcase"></i> Alarmes
+        Alarmes  
+        <span :class="{
+          'notif-alert': alarmStatus === 'disparado',
+        }">( {{ this.alarmCount }} )</span>
       </router-link>
       <router-link to="/candidatos">
-        <i class="fa fa-users"></i> Candidatos
+        Candidatos
       </router-link>
-      <router-link to="/opcoes">
-        <i class="fa fa-cog"></i> Opções
+      <router-link to="/analise">
+        Análise
+      </router-link>
+      <router-link to="/compartilharDash">
+        Compartilhar análises
       </router-link>
     </div>
     <div class="sair">
       <router-link to="/sair">
-        <i class="fa fa-sign-out-alt"></i> Sair
+        Sair
       </router-link>
     </div>
   </nav>
 </template>
 
+<script >
+export default {
+  name: 'NavBar',
+  data() {
+          return {
+              alarmes :[],
+              alarmCount: 0,
+              alarmStatus: 'normal',
+          };
+      },
+      async mounted() { 
+          await this.fetchData();
+      },
+      methods: {
+          checkAlarms() {
+              // Exemplo: Verifique se há alarmes disparados
+              this.alarmCount = this.alarmes.length;
+              if(this.alarmCount > 0){
+                this.alarmStatus = "disparado"
+              }
+              else{
+                this.alarmStatus = "normal"
+              }
+              
+          },
+          async fetchData() {
+              try {
+                  const response = await fetch(`${import.meta.env.VITE_BASE_API_URL}/graficos/alarmesAtivos`);
+                  if (!response.ok) {
+                      throw new Error('Network response was not ok');
+                  }
+                  const data = await response.json();
+                  this.transformData(data);
+                  this.checkAlarms();
+              } catch (error) {
+                  console.error('Erro ao buscar dados:', error);
+              }
+          },
+          transformData(data) {
+              this.alarmes = data;
+          }
+      }
+}
+</script>
+
 <style scoped>
+.notif-alert {
+  text-decoration: none;
+  color: #fd2222;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s;
+  border-radius: 40px; /* Adicionado border-radius para arredondar as bordas */
+}
+
 nav {
   display: flex;
   flex: 1;
@@ -53,19 +108,19 @@ nav {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .foto-perfil {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 0.5rem;
 }
 
 .nome-usuario {
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: bold;
   text-align: center;
   color: var(--branco2-pro4tech);
@@ -82,7 +137,7 @@ nav {
   margin: 0.5rem 0;
   text-decoration: none;
   color: var(--branco2-pro4tech);
-  font-size: 1rem;
+  font-size: 0.7rem;
   font-weight: 500;
   padding: 0.7rem 1rem;
   box-sizing: border-box;
@@ -90,24 +145,13 @@ nav {
   align-items: center;
   transition: all 0.3s;
   border-radius: 40px; /* Adicionado border-radius para arredondar as bordas */
+  margin-bottom: 0;
 }
 
 .paginas a:hover {
   background-color: #ffffff;
   color: #000000;
   transform: translateX(5px);
-}
-
-.paginas i {
-  margin-right: 12px;
-  width: 20px;
-  text-align: center;
-  font-size: 1.1rem;
-  transition: color 0.3s;
-}
-
-.paginas a:hover i {
-  color: #000000;
 }
 
 .sair {
@@ -119,7 +163,7 @@ nav {
   margin: 0.5rem 0;
   text-decoration: none;
   color: var(--branco2-pro4tech);
-  font-size: 1rem;
+  font-size: 0.7rem;
   font-weight: 500;
   padding: 0.7rem 1rem;
   box-sizing: border-box;
@@ -133,18 +177,6 @@ nav {
   background-color: #ffffff;
   color: #000000;
   transform: translateX(5px);
-}
-
-.sair i {
-  margin-right: 12px;
-  width: 20px;
-  text-align: center;
-  font-size: 1.1rem;
-  transition: color 0.3s;
-}
-
-.sair a:hover i {
-  color: #000000;
 }
 
 .router-link-active {

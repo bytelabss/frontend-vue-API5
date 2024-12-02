@@ -5,7 +5,7 @@
     <div class="filtros">
       <div class="filtro-item">
         <label for="mesInicial">Mês Inicial:</label>
-        <select v-model="mesInicial" @change="fetchData">
+        <select id="mesInicial" v-model="mesInicial" @change="fetchData">
           <option v-for="mes in meses" :key="mes.numero" :value="mes.numero">
             {{ mes.numero }}
           </option>
@@ -14,7 +14,7 @@
 
       <div class="filtro-item">
         <label for="anoInicial">Ano Inicial:</label>
-        <select v-model="anoInicial" @change="fetchData">
+        <select id="anoInicial" v-model="anoInicial" @change="fetchData">
           <option v-for="ano in anos" :key="ano.numero" :value="ano.numero">
             {{ ano.numero }}
           </option>
@@ -23,7 +23,7 @@
 
       <div class="filtro-item">
         <label for="mesFinal">Mês Final:</label>
-        <select v-model="mesFinal" @change="fetchData">
+        <select id="mesFinal" v-model="mesFinal" @change="fetchData">
           <option v-for="mes in meses" :key="mes.numero" :value="mes.numero">
             {{ mes.numero }}
           </option>
@@ -32,7 +32,7 @@
 
       <div class="filtro-item">
         <label for="anoFinal">Ano Final:</label>
-        <select v-model="anoFinal" @change="fetchData">
+        <select id="anoFinal" v-model="anoFinal" @change="fetchData">
           <option v-for="ano in anos" :key="ano.numero" :value="ano.numero">
             {{ ano.numero }}
           </option>
@@ -89,7 +89,7 @@ export default {
     async fetchData() {
       try {
         const response = await fetch(
-          `http://localhost:9090/api/fatoContratacoes/quantidadeContratacoesRH?mesInicial=${this.mesInicial}&anoInicial=${this.anoInicial}&mesFinal=${this.mesFinal}&anoFinal=${this.anoFinal}`
+          `${import.meta.env.VITE_BASE_API_URL}/fatoContratacoes/quantidadeContratacoesRH?mesInicial=${this.mesInicial}&anoInicial=${this.anoInicial}&mesFinal=${this.mesFinal}&anoFinal=${this.anoFinal}`
         );
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -105,7 +105,7 @@ export default {
     },
     async exportExcel() {
       try {
-        const response = await fetch('http://localhost:9090/api/excel/participantesRH', {
+        const response = await fetch(`${import.meta.env.VITE_BASE_API_URL}/excel/participantesRH`, {
           method: 'GET',
         });
         const blob = await response.blob();
@@ -121,7 +121,7 @@ export default {
     },
     async exportPdf() {
       try {
-        const response = await fetch('http://localhost:9090/api/pdf/participantesRH', {
+        const response = await fetch(`${import.meta.env.VITE_BASE_API_URL}/pdf/participantesRH`, {
           method: 'GET',
         });
         const blob = await response.blob();

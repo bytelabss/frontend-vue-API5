@@ -47,7 +47,7 @@ methods: {
             return;
         }
         try {
-            const response = await fetch(`http://localhost:9090/api/fatoAvaliacoes/buscarPorNomeProcessoSeletivo?nomeProcessoSeletivo=${this.nomeProcessoSeletivo}`);
+            const response = await fetch(`${import.meta.env.VITE_BASE_API_URL}/fatoAvaliacoes/buscarPorNomeProcessoSeletivo?nomeProcessoSeletivo=${this.nomeProcessoSeletivo}`);
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
@@ -68,7 +68,7 @@ methods: {
                 return;
             }
             try {
-                const response = await fetch(`http://localhost:9090/api/fatoAvaliacoes/candidatoProcessoSeletivo?numeroProcessoSeletivo=${this.numeroProcessoSeletivo}`);
+                const response = await fetch(`${import.meta.env.VITE_BASE_API_URL}/fatoAvaliacoes/candidatoProcessoSeletivo?numeroProcessoSeletivo=${this.numeroProcessoSeletivo}`);
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }

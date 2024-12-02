@@ -96,7 +96,7 @@ export default {
         },
         async fetchData() {
             try {
-                const response = await fetch('http://localhost:9090/api/vagas');
+                const response = await fetch(`${import.meta.env.VITE_BASE_API_URL}/vagas`);
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
